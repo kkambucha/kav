@@ -11,9 +11,13 @@ export class UserService {
     return Observable.fromPromise(Promise.resolve(USERS));
   }
 
+  getUsersList(): Promise<IUser[]> {
+    return Promise.resolve(USERS);
+  }
+
   getUsersSlowly(): Promise<IUser[]> {
     return new Promise(resolve => {
-      setTimeout(() => resolve(this.getUsers()), 3000);
+      setTimeout(() => resolve(this.getUsersList()), 100);
     });
   }
 }

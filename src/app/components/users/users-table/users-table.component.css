@@ -32,3 +32,26 @@
   overflow: auto;
   max-height: 500px;
 }
+
+.mat-table {
+  display: table;
+  width: 100%;
+}
+
+.mat-table .mat-header-row, .mat-table .mat-row {
+  display: table-row;
+  padding: 0;
+  border: none;
+}
+
+.mat-table .mat-header-cell, .mat-table .mat-cell {
+  display: table-cell;
+  height: 48px;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.users-table {
+  padding: 0 24px;
+  overflow: hidden;
+}

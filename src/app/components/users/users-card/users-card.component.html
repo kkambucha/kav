@@ -1,0 +1,27 @@
+<h1>CARDS</h1>
+
+<div class="example-header">
+  <md-form-field floatPlaceholder="never">
+    <input mdInput #filter placeholder="Filter users">
+  </md-form-field>
+</div>
+
+<div>
+  <md-card class="example-card" *ngFor="let user of users">
+    <md-card-header>
+      <div md-card-avatar class="example-header-image"></div>
+      <md-card-title>ID: {{ user.id }}</md-card-title>
+      <md-card-subtitle>{{ user.first_name }}</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <md-card-content>
+      <p>
+        {{ user.last_name }} <br>
+        {{ user.username }} <br>
+        {{ user.email }} <br>
+        {{ user.gender }} <br>
+        {{ user.drugs }}
+      </p>
+    </md-card-content>
+  </md-card>
+</div>

@@ -6,11 +6,10 @@ import { RouterModule} from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { UsersComponent } from './components/users/users.component';
 import { UsersTableComponent } from './components/users/users-table/users-table.component';
+import { UsersCardComponent } from './components/users/users-card/users-card.component';
 import { AppComponent } from './app.component';
 
-import { MdButtonModule } from '@angular/material';
-import { MdTableModule } from '@angular/material';
-import { MdInputModule } from '@angular/material';
+import { MdButtonModule, MdTableModule, MdInputModule, MdRadioModule, MdCardModule  } from '@angular/material';
 import { UserService } from './services/user.service';
 
 @NgModule({
@@ -18,19 +17,35 @@ import { UserService } from './services/user.service';
     AppComponent,
     MainComponent,
     UsersComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    UsersCardComponent
   ],
   imports: [
     MdButtonModule,
     MdTableModule,
     MdInputModule,
+    MdRadioModule,
+    MdCardModule,
     BrowserAnimationsModule,
     BrowserModule,
     RouterModule.forRoot(
       [
         { path: '', redirectTo: '/main', pathMatch: 'full' },
         { path: 'main', component: MainComponent },
-        { path: 'users', component: UsersComponent }
+        {
+          path: 'users',
+          component: UsersComponent,
+          children: [
+            {
+              path: 'table',
+              component: UsersTableComponent,
+            },
+            {
+              path: 'cards',
+              component: UsersCardComponent,
+            },
+          ]
+        }
       ]
     )
   ],

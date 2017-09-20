@@ -32,3 +32,11 @@
   overflow: auto;
   max-height: 500px;
 }
+
+.users-radio {
+  margin: 24px 0;
+}
+
+.users-radio .mat-radio-button {
+  margin: 0 24px 0 0;
+}
