@@ -5,3 +5,10 @@
 body {
   padding: 2em;
 }
+.mat-button.mat-primary.active .mat-button-focus-overlay {
+  background: rgba(103,58,183,.12);
+  opacity: 1;
+}
+h1 {
+  font-weight: 300;
+}

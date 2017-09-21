@@ -9,7 +9,7 @@ import { UsersTableComponent } from './components/users/users-table/users-table.
 import { UsersCardComponent } from './components/users/users-card/users-card.component';
 import { AppComponent } from './app.component';
 
-import { MdButtonModule, MdTableModule, MdInputModule, MdRadioModule, MdCardModule  } from '@angular/material';
+import { MdButtonModule, MdTableModule, MdInputModule, MdRadioModule, MdCardModule } from '@angular/material';
 import { UserService } from './services/user.service';
 
 @NgModule({
