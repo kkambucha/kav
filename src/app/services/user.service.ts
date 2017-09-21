@@ -7,6 +7,7 @@ import 'rxjs/add/observable/fromPromise';
 
 @Injectable()
 export class UserService {
+
   getUsers(): Observable<IUser[]> {
     return Observable.fromPromise(Promise.resolve(USERS));
   }

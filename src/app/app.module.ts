@@ -7,6 +7,7 @@ import { MainComponent } from './components/main/main.component';
 import { UsersComponent } from './components/users/users.component';
 import { UsersTableComponent } from './components/users/users-table/users-table.component';
 import { UsersCardComponent } from './components/users/users-card/users-card.component';
+import { UsersByGroupComponent } from './components/users/users-by-group/users-by-group.component';
 import { AppComponent } from './app.component';
 
 import { MdButtonModule, MdTableModule, MdInputModule, MdRadioModule, MdCardModule } from '@angular/material';
@@ -18,7 +19,8 @@ import { UserService } from './services/user.service';
     MainComponent,
     UsersComponent,
     UsersTableComponent,
-    UsersCardComponent
+    UsersCardComponent,
+    UsersByGroupComponent
   ],
   imports: [
     MdButtonModule,
@@ -44,6 +46,10 @@ import { UserService } from './services/user.service';
               path: 'cards',
               component: UsersCardComponent,
             },
+            {
+              path: 'groups',
+              component: UsersByGroupComponent,
+            }
           ]
         }
       ]
