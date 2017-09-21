@@ -21,6 +21,7 @@ import 'rxjs/add/observable/fromEvent';
 export class UsersByGroupComponent implements OnInit {
   users: IUser[];
   groups;
+  usersByGroups;
   filteredUsers: IUser[];
   @ViewChild('filter') filter: ElementRef;
 
@@ -55,8 +56,9 @@ export class UsersByGroupComponent implements OnInit {
       .subscribe((data) => {
         this.users = data;
         this.groups = this.getGroups(data);
-        console.log(this.groups);
+        this.usersByGroups = this.getUsersByGroups(data);
         this.filteredUsers = data;
+        console.log(this.usersByGroups);
       });
   }
 
@@ -73,4 +75,51 @@ export class UsersByGroupComponent implements OnInit {
     return Array.from(new Set(newArr));
   }
 
+  getUsersByGroupOrder(users): any {
+    let newArray: any = [];
+
+    newArray = users.sort(this.compareValues('drugs'));
+
+    return newArray;
+  }
+
+  getUsersByGroups(users): any {
+    let newArr = [],
+        i,
+        j;
+
+    for (i = 0; i < this.groups.length; i++) {
+      newArr[this.groups[i]] = [];
+      for (j = 0; j < this.users.length; j++) {
+        if (this.users[j].drugs === this.groups[i]) {
+          newArr[this.groups[i]].push(this.users[j]);
+        }
+      }
+    }
+
+    return newArr;
+  }
+
+  compareValues (key, order = 'asc') {
+    return function(a, b) {
+      if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+        return 0;
+      }
+
+      const varA = (typeof a[key] === 'string') ?
+        a[key].toUpperCase() : a[key];
+      const varB = (typeof b[key] === 'string') ?
+        b[key].toUpperCase() : b[key];
+
+      let comparison = 0;
+      if (varA > varB) {
+        comparison = 1;
+      } else if (varA < varB) {
+        comparison = -1;
+      }
+      return (
+        (order == 'desc') ? (comparison * -1) : comparison
+      );
+    }
+  }
 }
