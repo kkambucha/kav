@@ -48,7 +48,6 @@ export class ExampleDatabase {
     userService
       .getUsers()
       .subscribe(data => {
-        console.log(data);
         this.dataChange.next(data);
       });
   }

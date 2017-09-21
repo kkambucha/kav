@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { IUser } from '../../../../interfaces/user';
 import { UserService } from '../../../services/user.service';
 
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
@@ -19,6 +20,8 @@ import 'rxjs/add/observable/fromEvent';
 
 export class UsersCardComponent implements OnInit {
   users: IUser[];
+  filteredUsers: IUser[];
+  @ViewChild('filter') filter: ElementRef;
 
   constructor(
     private userService: UserService
@@ -27,12 +30,31 @@ export class UsersCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+    Observable.fromEvent(this.filter.nativeElement, 'keyup')
+      .debounceTime(150)
+      .distinctUntilChanged()
+      .subscribe(() => {
+        this.filteredUsers = this.users.filter((item: IUser) => {
+          let filtered,
+              isUsername,
+              isFirstname;
+
+          isUsername = item.username.toLowerCase().indexOf(this.filter.nativeElement.value.toLowerCase()) > -1;
+          isFirstname = item.first_name.toLowerCase().indexOf(this.filter.nativeElement.value.toLowerCase()) > -1;
+
+          filtered = isUsername || isFirstname;
+
+          return filtered;
+        });
+      });
   }
 
   getUsers(): void {
-    this.userService.getUsersSlowly().then(users => {
-      this.users = users;
-    });
+    this.userService.getUsers()
+      .subscribe((data) => {
+        this.users = data;
+        this.filteredUsers = data;
+      });
   }
 
 }
