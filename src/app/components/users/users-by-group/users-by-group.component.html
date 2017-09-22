@@ -1,36 +1,36 @@
-<div class="example-header">
-  <md-form-field floatPlaceholder="never">
-    <input mdInput #filter placeholder="Filter users">
-  </md-form-field>
-</div>
+<div class="b-users-groups-container">
+  <div class="b-groups-header">
+    <md-form-field floatPlaceholder="never">
+      <input mdInput #filter placeholder="Filter users">
+    </md-form-field>
+  </div>
 
-<div>
-  <div class="b-groups">
-    <div class="b-groups__group" *ngFor="let group of groups">
-      <div class="b-groups__group-name">
-        <span *ngIf="group !== 'null'">
-          {{ group }}
-        </span>
-        <span *ngIf="group === 'null'">
-          No info
-        </span>
-      </div>
-      <div class="b-groups__group-item-wrapper">
-        <md-card class="example-card" *ngFor="let user of filteredUsers[group]">
-          <md-card-header>
-            <div md-card-avatar class="example-header-image"></div>
-            <md-card-title>ID: {{ user.id }}</md-card-title>
-            <md-card-subtitle></md-card-subtitle>
-          </md-card-header>
-          <md-card-content>
-            <p>
-              {{ user.id }}
-              {{ user.first_name }}
-              {{ user.last_name }}
-              {{ user.email }}
-            </p>
-          </md-card-content>
-        </md-card>
+  <div class="b-groups-wrapper">
+    <div class="b-groups">
+      <div class="b-groups__group" *ngFor="let group of groups">
+        <div class="b-groups__group-name">
+          <span *ngIf="group !== 'null'" class="b-groups__group-name-text">
+            {{ group }}
+          </span>
+          <span *ngIf="group === 'null'" class="b-groups__group-name-text">
+            No info
+          </span>
+        </div>
+        <div class="b-groups__group-item-wrapper">
+          <md-card class="b-group-item" *ngFor="let user of filteredUsers[group]">
+            <md-card-header>
+              <div md-card-avatar class="b-header-image"></div>
+              <md-card-title>{{ user.first_name }}</md-card-title>
+              <md-card-subtitle></md-card-subtitle>
+            </md-card-header>
+            <md-card-content>
+              <p>
+                {{ user.username }}
+                {{ user.email }}
+              </p>
+            </md-card-content>
+          </md-card>
+        </div>
       </div>
     </div>
   </div>

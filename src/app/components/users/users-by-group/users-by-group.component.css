@@ -1,3 +1,11 @@
+.b-users-groups-container {
+  position: relative;
+}
+
+.b-groups-wrapper {
+  margin-top: 30px;
+}
+
 .b-groups {
   display: flex;
   width: 100%;
@@ -7,6 +15,12 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  border-right: 1px solid #ededed;
+  padding: 0 18px;
+  max-width: 150px;
+}
+.b-groups__group:last-child {
+  border: 0;
 }
 .b-groups__group-item-wrapper {
   display: flex;
@@ -14,10 +28,64 @@
   flex-direction: column;
 }
 .b-groups__group-name {
-  display: flex;
+  display: block;
   width: 100%;
 }
 .b-groups__group-item {
   display: flex;
   width: 100%;
+}
+
+.b-users-cards-header {
+  width: 300px;
+  position: absolute;
+  right: 0;
+  top: -50px;
+}
+
+.b-groups-header {
+  width: 300px;
+  position: absolute;
+  right: 0;
+  top: -80px;
+}
+
+.b-groups-header .mat-input-container {
+  width: 100%;
+}
+
+.b-groups__group-name-text {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+}
+
+.b-groups__group-item-wrapper {
+  margin-top: 30px;
+}
+
+.b-group-item {
+  margin-bottom: 15px;
+}
+
+.b-header-image {
+  background-image: url('../../../../assets/noAvatar.png');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+}
+
+.b-group-item.mat-card {
+  padding: 10px;
+}
+
+.b-group-item .mat-card-header {
+  margin-bottom: 8px;
+}
+
+.b-group-item .mat-card-content {
+  font-size: 13px;
+  overflow: hidden;
 }
