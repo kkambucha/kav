@@ -1,24 +1,29 @@
-<div class="example-header">
-  <md-form-field floatPlaceholder="never">
-    <input mdInput #filter placeholder="Filter users">
-  </md-form-field>
-</div>
+<div class="b-users-cards-container">
+  <div class="b-users-cards-header">
+    <md-form-field floatPlaceholder="never">
+      <input mdInput #filter placeholder="Filter users">
+    </md-form-field>
+  </div>
 
-<div>
-  <md-card class="example-card" *ngFor="let user of filteredUsers">
-    <md-card-header>
-      <div md-card-avatar class="example-header-image"></div>
-      <md-card-title>ID: {{ user.id }}</md-card-title>
-      <md-card-subtitle>{{ user.first_name }}</md-card-subtitle>
-    </md-card-header>
-    <md-card-content>
-      <p>
-        {{ user.last_name }} <br>
-        {{ user.username }} <br>
-        {{ user.email }} <br>
-        {{ user.gender }} <br>
-        {{ user.drugs }}
-      </p>
-    </md-card-content>
-  </md-card>
+  <div class="b-users-container">
+    <div class="b-user-card" *ngFor="let user of filteredUsers">
+      <md-card>
+        <md-card-header>
+          <div md-card-avatar class="b-header-image"></div>
+          <md-card-title>ID: {{ user.id }}</md-card-title>
+          <md-card-subtitle>{{ user.first_name }}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <p>
+            <b>first name:</b> {{ user.first_name }} <br>
+            <b>last name:</b> {{ user.last_name }} <br>
+            <b>username:</b> {{ user.username }} <br>
+            <b>email:</b> {{ user.email }} <br>
+            <b>gender:</b> {{ user.gender }} <br>
+            <b>drugs:</b> {{ user.drugs }}
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
 </div>

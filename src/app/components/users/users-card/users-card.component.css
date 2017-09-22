@@ -1,6 +1,36 @@
-.example-card {
+.b-users-cards-container {
+  position: relative;
+}
+
+.b-users-cards-header {
+  width: 300px;
+  position: absolute;
+  right: 0;
+  top: -50px;
+}
+
+.b-users-cards-header .mat-input-container {
+  width: 100%;
+}
+
+.b-users-container {
+  display: inline-block;
+  margin: 30px auto 0 auto;
+  text-align: center;
+}
+
+.b-user-card {
   width: 17%;
-  float: left;
-  margin: 0 5px 5px 5px;
-  height: 200px;
+  margin: 5px 10px 10px 0;
+  display: inline-block;
+  min-width: 260px;
+}
+
+.b-user-card .mat-card {
+  text-align: left;
+}
+
+.b-header-image {
+  background-image: url('../../../../assets/noAvatar.png');
+  background-size: cover;
 }

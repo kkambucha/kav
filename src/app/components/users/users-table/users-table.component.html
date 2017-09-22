@@ -1,50 +1,43 @@
-<div class="example-container mat-elevation-z8">
-  <div class="example-header">
+<div class="b-table-container mat-elevation-z8">
+  <div class="b-table-header">
     <md-form-field floatPlaceholder="never">
       <input mdInput #filter placeholder="Filter users">
     </md-form-field>
   </div>
 
-  <div class="users-table">
+  <div class="b-table">
     <md-table #table [dataSource]="dataSource">
 
-      <!-- ID Column -->
       <ng-container mdColumnDef="id">
         <md-header-cell *mdHeaderCellDef> ID </md-header-cell>
         <md-cell *mdCellDef="let row"> {{row.id}} </md-cell>
       </ng-container>
 
-      <!-- First Name Column -->
       <ng-container mdColumnDef="firstName">
         <md-header-cell *mdHeaderCellDef> First Name </md-header-cell>
         <md-cell *mdCellDef="let row"> {{row.first_name}} </md-cell>
       </ng-container>
 
-      <!-- Last Name Column -->
       <ng-container mdColumnDef="lastName">
         <md-header-cell *mdHeaderCellDef> Last Name </md-header-cell>
         <md-cell *mdCellDef="let row"> {{row.last_name}} </md-cell>
       </ng-container>
 
-      <!-- User Name Column -->
       <ng-container mdColumnDef="userName">
         <md-header-cell *mdHeaderCellDef> User Name </md-header-cell>
         <md-cell *mdCellDef="let row"> {{row.username}} </md-cell>
       </ng-container>
 
-      <!-- Email Column -->
       <ng-container mdColumnDef="email">
         <md-header-cell *mdHeaderCellDef> Email </md-header-cell>
         <md-cell *mdCellDef="let row"> {{row.email}} </md-cell>
       </ng-container>
 
-      <!-- Gender Column -->
       <ng-container mdColumnDef="gender">
         <md-header-cell *mdHeaderCellDef> Gender </md-header-cell>
         <md-cell *mdCellDef="let row"> {{row.gender}} </md-cell>
       </ng-container>
 
-      <!-- Drugs Column -->
       <ng-container mdColumnDef="drugs">
         <md-header-cell *mdHeaderCellDef> Drugs </md-header-cell>
         <md-cell *mdCellDef="let row"> {{row.drugs}} </md-cell>

@@ -1,19 +1,11 @@
-/* Structure */
-.example-container {
+.b-table-container {
   display: flex;
   flex-direction: column;
   min-width: 300px;
+  margin-top: 30px;
 }
 
-.example-header {
-  min-height: 64px;
-  display: flex;
-  align-items: center;
-  padding-left: 24px;
-  font-size: 20px;
-}
-
-.example-header {
+.b-table-header {
   min-height: 64px;
   display: flex;
   align-items: baseline;
@@ -51,7 +43,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.users-table {
+.b-table {
   padding: 0 24px;
   overflow: hidden;
 }

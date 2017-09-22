@@ -5,74 +5,30 @@
 </div>
 
 <div>
-
-
-  <div class="b-groups">
-    <div class="b-groups__group">
-      <div class="b-groups__group-name">Drug</div>
-      <div class="b-groups__group-item-wrapper">
-        <div class="b-groups__group-item">1</div>
-        <div class="b-groups__group-item">2</div>
-        <div class="b-groups__group-item">3</div>
-      </div>
-    </div>
-    <div class="b-groups__group">
-      <div class="b-groups__group-name">Drug</div>
-      <div class="b-groups__group-item-wrapper">
-        <div class="b-groups__group-item">1</div>
-        <div class="b-groups__group-item">2</div>
-        <div class="b-groups__group-item">3</div>
-      </div>
-    </div>
-    <div class="b-groups__group">
-      <div class="b-groups__group-name">Drug</div>
-      <div class="b-groups__group-item-wrapper">
-        <div class="b-groups__group-item">1</div>
-        <div class="b-groups__group-item">2</div>
-        <div class="b-groups__group-item">3</div>
-      </div>
-    </div>
-    <div class="b-groups__group">
-      <div class="b-groups__group-name">Drug</div>
-      <div class="b-groups__group-item-wrapper">
-        <div class="b-groups__group-item">1</div>
-        <div class="b-groups__group-item">2</div>
-        <div class="b-groups__group-item">3</div>
-      </div>
-    </div>
-    <div class="b-groups__group">
-      <div class="b-groups__group-name">Drug</div>
-      <div class="b-groups__group-item-wrapper">
-        <div class="b-groups__group-item">1</div>
-        <div class="b-groups__group-item">2</div>
-        <div class="b-groups__group-item">3</div>
-      </div>
-    </div>
-    <div class="b-groups__group">
-      <div class="b-groups__group-name">Drug</div>
-      <div class="b-groups__group-item-wrapper">
-        <div class="b-groups__group-item">1</div>
-        <div class="b-groups__group-item">2</div>
-        <div class="b-groups__group-item">3</div>
-      </div>
-    </div>
-  </div>
-
-
-
-
   <div class="b-groups">
     <div class="b-groups__group" *ngFor="let group of groups">
-      <div class="b-groups__group-name">{{ group[0] }}</div>
+      <div class="b-groups__group-name">
+        <span *ngIf="group !== 'null'">
+          {{ group }}
+        </span>
+        <span *ngIf="group === 'null'">
+          No info
+        </span>
+      </div>
       <div class="b-groups__group-item-wrapper">
-        <md-card class="example-card">
+        <md-card class="example-card" *ngFor="let user of filteredUsers[group]">
           <md-card-header>
             <div md-card-avatar class="example-header-image"></div>
-            <md-card-title>ID:</md-card-title>
+            <md-card-title>ID: {{ user.id }}</md-card-title>
             <md-card-subtitle></md-card-subtitle>
           </md-card-header>
           <md-card-content>
-
+            <p>
+              {{ user.id }}
+              {{ user.first_name }}
+              {{ user.last_name }}
+              {{ user.email }}
+            </p>
           </md-card-content>
         </md-card>
       </div>

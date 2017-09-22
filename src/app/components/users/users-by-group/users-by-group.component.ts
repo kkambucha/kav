@@ -36,18 +36,21 @@ export class UsersByGroupComponent implements OnInit {
       .debounceTime(150)
       .distinctUntilChanged()
       .subscribe(() => {
-        this.filteredUsers = this.users.filter((item: IUser) => {
-          let filtered,
-              isUsername,
-              isFirstname;
+        let i;
+        let filtered,
+            isUsername,
+            isFirstname;
 
-          isUsername = item.username.toLowerCase().indexOf(this.filter.nativeElement.value.toLowerCase()) > -1;
-          isFirstname = item.first_name.toLowerCase().indexOf(this.filter.nativeElement.value.toLowerCase()) > -1;
-
-          filtered = isUsername || isFirstname;
-
-          return filtered;
-        });
+        for (const group in this.usersByGroups ) {
+          for (i = 0; i < this.usersByGroups[group].length; i++) {
+            this.filteredUsers[group] = this.usersByGroups[group].filter((user) => {
+              isUsername = user.username.toLowerCase().indexOf(this.filter.nativeElement.value.toLowerCase()) > -1;
+              isFirstname = user.first_name.toLowerCase().indexOf(this.filter.nativeElement.value.toLowerCase()) > -1;
+              filtered = isUsername || isFirstname;
+              return filtered;
+            });
+          }
+        }
       });
   }
 
@@ -56,9 +59,8 @@ export class UsersByGroupComponent implements OnInit {
       .subscribe((data) => {
         this.users = data;
         this.groups = this.getGroups(data);
-        this.usersByGroups = this.getUsersByGroups(data);
-        this.filteredUsers = data;
-        console.log(this.usersByGroups);
+        this.usersByGroups = this.getUsersByGroups();
+        this.filteredUsers = this.getUsersByGroups();
       });
   }
 
@@ -75,15 +77,7 @@ export class UsersByGroupComponent implements OnInit {
     return Array.from(new Set(newArr));
   }
 
-  getUsersByGroupOrder(users): any {
-    let newArray: any = [];
-
-    newArray = users.sort(this.compareValues('drugs'));
-
-    return newArray;
-  }
-
-  getUsersByGroups(users): any {
+  getUsersByGroups(): any {
     let newArr = [],
         i,
         j;
@@ -120,6 +114,6 @@ export class UsersByGroupComponent implements OnInit {
       return (
         (order == 'desc') ? (comparison * -1) : comparison
       );
-    }
+    };
   }
 }

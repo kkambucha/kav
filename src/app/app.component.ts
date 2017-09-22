@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Junkies of San-Francisco';
   private router: Router;
 
   constructor (r: Router) {
@@ -15,7 +15,6 @@ export class AppComponent {
   }
 
   onUsersLinkClick(): void {
-    console.log('click');
     this.router.navigate(['/users/table']);
   }
 }

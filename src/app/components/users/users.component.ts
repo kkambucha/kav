@@ -11,7 +11,7 @@ import { UserService } from '../../services/user.service';
 
 export class UsersComponent implements OnInit {
   users: IUser[];
-  title = 'Пользователи';
+  title = 'Junkies List';
 
   constructor(
     private userService: UserService
@@ -23,6 +23,9 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.userService.getUsersSlowly().then(users => this.users = users);
+    this.userService.getUsers()
+      .subscribe((data) => {
+        this.users = data;
+      });
   }
 }
