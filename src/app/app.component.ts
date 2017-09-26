@@ -15,6 +15,6 @@ export class AppComponent {
   }
 
   onUsersLinkClick(): void {
-    this.router.navigate(['/users/table']);
+    this.router.navigate(['/junkies/users/table']);
   }
 }

@@ -32,10 +32,10 @@ import { UserService } from './services/user.service';
     BrowserModule,
     RouterModule.forRoot(
       [
-        { path: '', redirectTo: '/main', pathMatch: 'full' },
-        { path: 'main', component: MainComponent },
+        { path: 'junkies', redirectTo: '/junkies/main', pathMatch: 'full' },
+        { path: 'junkies/main', component: MainComponent },
         {
-          path: 'users',
+          path: 'junkies/users',
           component: UsersComponent,
           children: [
             {
