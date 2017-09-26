@@ -6,4 +6,4 @@ npm i
 
 npm start
 
-localhost:4444
+localhost:4444/junkies/

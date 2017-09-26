@@ -58,7 +58,7 @@
     "component": {},
     "serve": {
       "port": 4444,
-      "host": "10.0.100.20"
+      "host": "localhost"
     }
   }
 }
